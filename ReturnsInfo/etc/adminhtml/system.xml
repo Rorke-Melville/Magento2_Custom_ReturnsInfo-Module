@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+ *  Copyright (c) 2024 Gelmar (Pty) Ltd
+ *
+ *  Author: Rorke Melville
+ *
+ *  Released under the GNU General Public License
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="returnsinfo" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+        <class>separator-top</class>
+            <label>Returns Info</label>
+            <tab>ThreeYearOrders</tab>
+            <resource>Gelmar_ReturnsInfo::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <default>1</default>
+                    <showInStore>1</showInStore>
+                </field>
+            </group>
+            <group id="labels" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Headings</label>
+                <field id="label1" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>1st Heading</label>
+                    <comment>"Return Policy Info" will display if left blank</comment>
+                </field>
+                <field id="label2" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>2nd Heading</label>
+                    <comment>"Nationwide Delivery" will display if left blank</comment>
+                </field>
+                <field id="label3" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>3rd Heading</label>
+                    <comment>"Click-n-Collect" will display if left blank</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,190 @@
+<?php
+ /* 
+ *  Copyright (c) 2024 Gelmar (Pty) Ltd
+ *
+ *  Author: Rorke Melville
+ *
+ *  Released under the GNU General Public License
+ */
+ ?>
+<?php if ($block->isReturnsInfoEnabled()): ?>
+
+<style>
+.headinglabels:hover{
+    color:#0099a8;
+    text-decoration: underline;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 600px;
+    text-align: center;
+    border-radius:10px;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+.clickable {
+    cursor: pointer;
+}
+
+.btn-return{
+    text-align: center;
+    background-color: #0099a8;
+    color:white;
+    border-radius:4px;
+    padding: 7px 15px;
+    border: 1px solid;
+    transition: all 500ms ease;
+    text-transform: none;
+}
+.btn-return:hover{
+    background-color: white;
+    color: #0099a8;
+    border-color: #0099a8;
+}
+@media only screen and (max-width:450px){
+    .table-info-product{
+        width:100% !important;
+    }
+    .popup{
+        width:95%;
+    }
+}
+</style>
+<script>
+// Function to show the popup
+function showPopup(popupId) {
+    document.getElementById(popupId).style.display = 'block';
+    document.querySelector('.popup-overlay').style.display = 'block';
+}
+
+// Function to hide the popup
+function hidePopup() {
+    document.querySelectorAll('.popup').forEach(popup => {
+        popup.style.display = 'none';
+    });
+    document.querySelector('.popup-overlay').style.display = 'none';
+}
+
+// Close the popup when clicking outside of it
+document.querySelector('.popup-overlay').addEventListener('click', hidePopup);
+</script>
+
+<div class="popup-overlay"></div>
+
+<table class="table-info-product" style="width:50%">
+    <tr>
+        <td class="clickable" style="text-aling:center; width:33%;" onclick="showPopup('popup1')">
+            <i class="fa-solid fa-rotate-left" style="color:#0099a8; font-size:30px; line-height:30px; text-align:center; display:block; margin:auto;"></i>
+                <p class="headinglabels" id="label1" style="font-size:13px; text-align:center;" ><?php echo $block->getLabel1(); ?></p>
+            </a>
+        </td>
+        <td class="clickable" style="text-aling:center; width:33%;" onclick="showPopup('popup2')">
+            <i class="fa-solid fa-truck-fast" style="color:#0099a8; font-size:30px; line-height:30px; text-align:center; display:block; margin:auto;"></i>
+                <p class="headinglabels" id="label2" style="font-size:13px; text-align:center;"><?php echo $block->getLabel2(); ?></p>
+            </a>
+        </td>
+        <td class="clickable" style="text-aling:center; width:33%;" onclick="showPopup('popup3')">
+            <i class="fa-solid fa-store" style="color:#0099a8; font-size:30px; line-height:30px; text-align:center; display:block; margin:auto;"></i>
+                <p class="headinglabels" id="label3" style="font-size:13px; text-align:center;"><?php echo $block->getLabel3(); ?></p>
+        </td>
+    </tr>
+</table>
+
+<!-- Pop-up content -->
+<div id="popup1" class="popup">
+<button onclick="hidePopup()" style="position: absolute; top: 2px; right: 2px; background: none; border: none;  cursor: pointer; padding:2px;"><img src="<?= /** @noEscape */ $block->getViewFileUrl('Gelmar_ReturnsInfo::images/black-close-icon-3.png') ?>" style="width:22px;"></button>
+    <h3>Our 60 Day Free Return Policy</h3>
+    <table>
+        <tr>
+            <td>
+                <i class="fa-solid fa-rotate-left" style="color:#0099a8; font-size:25px; line-height:25px;"></i>
+                <p>Cancel & return within 60 days</p>
+            </td>
+            <td>
+                <i class="fa-solid fa-sack-dollar" style="color:#0099a8; font-size:25px; line-height:25px;"></i>
+                <p>If unavailable, refund issued within 30 days</p>
+            </td>
+            <td>
+                <i class="fa-solid fa-store" style="color:#0099a8; font-size:25px; line-height:25px;"></i>
+                <p>Easy returns to any of our 45+ stores</p>
+            </td>
+        </tr>
+    </table>
+    <button class="btn-return"  onclick="window.open(`https://www.gelmar.co.za/terms-conditions#cancellations`, '_blank')">Ts & Cs Details</button>
+</div>
+
+<div id="popup2" class="popup">
+    <button onclick="hidePopup()" style="position: absolute; top: 2px; right: 2px; background: none; border: none;  cursor: pointer; padding:2px;"><img src="<?= /** @noEscape */ $block->getViewFileUrl('Gelmar_ReturnsInfo::images/black-close-icon-3.png') ?>" style="width:22px;"></button>
+    <img src="<?= /** @noEscape */ $block->getViewFileUrl('Gelmar_ReturnsInfo::images/WB_March_24_Deliveries_2-01.jpg') ?>" style="width:550px; display:block; border-radius:10px;">
+    <h3 style="margin-top:10px; width:100%; font-size:15px">Delivery within 5-7 working days. Cost based on order weight.</h3>
+    <div style="text-align:left;">
+        <table>
+            <tr>
+                <td>
+                    <ul>
+                        <li>0Kg - 5Kg: R89</li>
+                        <li>5Kg - 10Kg: R199</li>
+                        <li>10Kg - 15Kg: R299</li>
+                        <li>15Kg - 20Kg: R399</li>
+                        <li>20Kg - 25Kg: R499</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>25Kg - 30Kg: R599</li>
+                        <li>30Kg - 35Kg: R699</li>
+                        <li>35Kg - 40Kg: R799</li>
+                        <li>45Kg+: R899</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <button class="btn-return" onclick="window.open(`https://www.gelmar.co.za/terms-conditions#deliveries`, '_blank')">Delivery Details</button>
+</div>
+
+<div id="popup3" class="popup">
+<button onclick="hidePopup()" style="position: absolute; top: 2px; right: 2px; background: none; border: none;  cursor: pointer; padding:2px;"><img src="<?= /** @noEscape */ $block->getViewFileUrl('Gelmar_ReturnsInfo::images/black-close-icon-3.png') ?>" style="width:22px;"></button>
+    <h3>The "Click-n-Collect" Process & Benefits</h3>
+    <table>
+        <tr>
+            <td>
+                <i class="fa-solid fa-dolly" style="color:#0099a8; font-size:25px; line-height:25px;"></i>
+                <p>Buy online & reserve products instore</p>
+            </td>
+            <td>
+                <i class="fa-solid fa-cart-shopping" style="color:#0099a8; font-size:25px; line-height:25px;"></i>
+                <p>Select "Click-n-Collect" at checkout</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <i class="fa-solid fa-clock" style="color:#0099a8; font-size:25px; line-height:25px;"></i>
+                <p>Save time, skip the queue on collection</p>
+            </td>
+            <td>
+                <i class="fa-solid fa-shop" style="color:#0099a8; font-size:25px; line-height:25px;"></i>
+                <p>Choose from over 45 stores nationwide</p>
+            </td>
+        </tr>
+    </table>
+</div>
+<?php endif; ?>
