@@ -1,15 +1,15 @@
-Magento 2 Custom Module: Return Policy, Shipping Details & Click-n-Collect
+#Magento 2 Custom Module: Return Policy, Shipping Details & Click-n-Collect
 
-Overview
+#Overview
 The ReturnsInfo module adds three interactive font icons to the product details page of your Magento 2 store. These icons serve as links to pop-ups containing essential information about your return policy, nationwide shipping, and click-and-collect options. This module enhances the user experience by providing quick access to important details while browsing products.
 
-Features
+#Features
 Three Font Icons:
 Return Policy Info
 Nationwide Shipping
 Click-n-Collect
 
-Pop-up Information:
+#Pop-up Information:
 Each icon opens a pop-up with relevant information.
 The Return Policy and Shipping pop-ups include buttons that link to specific sections of the FAQs page.
 
