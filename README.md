@@ -49,6 +49,3 @@ Once installed and configured, the icons will appear on your product details pag
 
 ## Contributions
 Contributions are welcome! If you would like to improve this module or suggest new features, please feel free to submit a pull request.
-
-## License
-This project is licensed under the MIT License.
