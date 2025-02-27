@@ -1,0 +1,101 @@
+.headinglabels:hover {
+    color: #0099a8;
+    text-decoration: underline;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 600px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.btn-return {
+    text-align: center;
+    background-color: #0099a8;
+    color: white;
+    border-radius: 4px;
+    padding: 7px 15px;
+    border: 1px solid;
+    transition: all 500ms ease;
+    text-transform: none;
+}
+
+.btn-return:hover {
+    background-color: white;
+    color: #0099a8;
+    border-color: #0099a8;
+}
+
+/* Truck Styling */
+.truck {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    animation: truckSlideIn 2s ease-out forwards; /* Initial slide-in and upward movement */
+}
+
+/* Add a class for continuous bouncing */
+.truck.bounce {
+    animation: truckBounce 0.5s ease-in-out infinite alternate; /* Continuous bouncing */
+}
+
+/* Animation Keyframes */
+@keyframes truckSlideIn {
+    /* Slide in from the left */
+    0% {
+        transform: translateX(-100%) translateY(0); /* Start off-screen to the left */
+    }
+    80% {
+        transform: translateX(-50%) translateY(0); /* Move to final position */
+    }
+    /* Wait briefly */
+    90% {
+        transform: translateX(-50%) translateY(0); /* Stay in place */
+    }
+    /* Move up slightly */
+    100% {
+        transform: translateX(-50%) translateY(-2px); /* End slightly higher */
+    }
+}
+
+@keyframes truckBounce {
+    0% {
+        transform: translateY(-2px) translateX(-50%); /* Start at the top */
+    }
+    100% {
+        transform: translateY(0) translateX(-50%); /* Move down slightly */
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .table-info-product {
+        width: 100% !important;
+    }
+
+    .popup {
+        width: 95%;
+    }
+}
